@@ -28,7 +28,6 @@ def movies():
     results = results["docs"][2:]
     return render_template("movies.html", results = results)
 
-#TODO: Fix chatacter ID and HTML
 @app.route("/movie/<id>/quote")
 def quotes(id):
     results = api_call(f"movie/{id}/quote")
@@ -37,25 +36,24 @@ def quotes(id):
 
 @app.route("/characters")
 def characters():
-    page = request.args.get('page', 1, type=int)
-    results_per_page = 9  # Antall resultater per side
-
+    page = request.args.get("page", 1, type=int)
+    results_per_page = 9
     results = api_call("character")
-    results = results["docs"]  # Få resultatene fra API-kallet
-
+    results = results["docs"]
     total_results = len(results)
     total_pages = (total_results + results_per_page - 1) // results_per_page
-    
-    # Hente ut den aktuelle siden med resultater
     start = (page - 1) * results_per_page
     end = start + results_per_page
     paged_results = results[start:end]
+    for character in paged_results:
+        character["has_quotes"] = len(api_call(f"character/{character['_id']}/quote")["docs"]) > 0
+    return render_template("characters.html", results=paged_results, page=page, total_pages=total_pages)
 
-    # Beregn verdier for minimum og maksimum
-    min_page = max(2, page - 1)  # Minimum side for visning
-    max_page = min(page + 2, total_pages)  # Maksimum side for visning
-    
-    return render_template("characters.html", results=paged_results, page=page, total_pages=total_pages, min_page=min_page, max_page=max_page)
+@app.route("/character/<id>/quote")
+def char_quotes(id):
+    results = api_call(f"character/{id}/quote")
+    results = results["docs"]
+    return render_template("char_quotes.html", results=results)
 
 
 if __name__ == "__main__":

@@ -21,8 +21,16 @@
                     <p><strong>Birth:</strong> {{ result.birth }}</p>
                     <p><strong>Gender:</strong> {{ result.gender }}</p>
                     <p><strong>Death:</strong> {{ result.death }}</p>
-                    {% set button_color = ['btn-success', 'btn-danger', 'btn-primary', 'btn-warning', 'btn-info'] %}
-                    <a href="{{ url_for('quotes', id=result._id) }}" class="btn {{ button_color[loop.index0 % button_color|length] }}">Learn More</a>
+                    {% set button_colors = ['btn-success', 'btn-danger', 'btn-primary', 'btn-warning', 'btn-info'] %}
+                    {% if result.has_quotes %}
+                        <a href="{{ url_for('char_quotes', id=result._id) }}" class="btn {{ button_colors[loop.index0 % button_colors|length] }}">
+                            See Quotes
+                        </a>
+                    {% else %}
+                    <a href="#" class="btn {{ button_colors[loop.index0 % button_colors|length] }}">
+                        No Quotes
+                    </a>
+                    {% endif %}
                 </div>
             </div>
         </div>

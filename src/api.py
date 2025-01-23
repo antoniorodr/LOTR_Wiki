@@ -19,5 +19,5 @@ def api_call(endpoint):
 
 
 if __name__ == "__main__":
-    # print(api_call("movie/5cd95395de30eff6ebccde5c/quote"))
-    print(api_call("character"))
+    print(api_call("character/5cd99d4bde30eff6ebccfc5f/quote"))
+    # print(api_call("character"))
