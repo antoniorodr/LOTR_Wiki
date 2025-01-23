@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+{% set ordinals = [
+    'first', 'second', 'third', 'fourth', 'fifth', 
+    'sixth', 'seventh', 'eighth', 'ninth', 'tenth',
+    'eleventh', 'twelfth', 'thirteenth', 'fourteenth', 'fifteenth',
+    'sixteenth', 'seventeenth', 'eighteenth', 'nineteenth', 'twentieth',
+    'twenty-first', 'twenty-second', 'twenty-third', 'twenty-fourth', 'twenty-fifth',
+    'twenty-sixth', 'twenty-seventh', 'twenty-eighth', 'twenty-ninth', 'thirtieth'
+] %}
+<div class="container mt-5">
+    <div class="text-center">
+        <a href="{{ url_for('home') }}" style="text-decoration: none; color: inherit;">
+            <h1 class="display-4 text-success">Welcome to the LOTR Wiki</h1>
+            <p style="color: #ffffff;">Discover the rich world of Middle-earth, its characters, and its stories.</p>
+        </a>
+    </div>
+
+    <div class="row mt-4">
+        {% for result in results %}
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm">
+                <img src="https://cdn.dribbble.com/users/8456088/screenshots/15991741/fronts_4x.jpg" class="card-img-top" alt="The Fellowship of the Ring">
+                <div class="card-body">
+                    <h5 class="card-title">{{ result.chapterName }}</h5>
+                    <p class="card-text">The {{ ordinals[loop.index0] }} chapter in the book.</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

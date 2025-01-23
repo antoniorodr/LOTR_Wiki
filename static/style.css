@@ -30,20 +30,31 @@ body {
 }
 
 .card {
-    opacity: 0.85; /* Gjør kortene litt gjennomsiktige */
-    transition: opacity 0.3s ease; /* Jevn overgang på hover */
+    opacity: 0.85;
+    transition: opacity 0.3s ease;
 }
 
 .card:hover {
-    opacity: 1; /* Fullt synlig på hover */
+    opacity: 1;
 }
 
 .card-body {
-    background-color: rgba(27, 26, 26, 0.8); /* Gjennomsiktig bakgrunn for kortene */
+    background-color: rgba(27, 26, 26, 0.8);
 }
 
 .text-center {
-    background-color: rgba(27, 26, 26, 0.8); /* Svart bakgrunn med gjennomsiktighet */
+    background-color: rgba(27, 26, 26, 0.8);
     padding: 5px;
     border-radius: 5px;
 }
+
+.pagination .page-link {
+    background: #1b1b1b;
+    color: white;
+}
+
+.page-item.active .page-link {
+    color: #fff !important;
+    background: green !important;
+    border-color: white
+  }

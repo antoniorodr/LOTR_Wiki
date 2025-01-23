@@ -17,13 +17,13 @@
         {% endblock %}
     </head>
     <body>
-        <!-- Your page content -->
+        {% include "header.html" %}
         {% block content %}{% endblock %}
 
         {% block scripts %}
             <!-- Optional JavaScript -->
             {{ bootstrap.load_js() }}
         {% endblock %}
-        {% include "footer.html" %}
     </body>
+    {% include "footer.html" %}
 </html>

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+{% set ordinals = ['first', 'second', 'third', 'fourth', 'fifth', 'sixth', 'seventh', 'eighth', 'ninth', 'tenth'] %}
+<div class="container mt-5">
+    <div class="text-center">
+        <a href="{{ url_for('home') }}" style="text-decoration: none; color: inherit;">
+            <h1 class="display-4 text-success">Welcome to the LOTR Wiki</h1>
+            <p style="color: #ffffff;">Discover the rich world of Middle-earth, its characters, and its stories.</p>
+        </a>
+    </div>
+
+    <div class="row mt-4">
+        <h2 class="text-center">Books</h2>
+        {% for result in results %}
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm">
+                <img src="https://cdn.dribbble.com/users/8456088/screenshots/15991741/fronts_4x.jpg" class="card-img-top" alt="The Fellowship of the Ring">
+                <div class="card-body">
+                    <h5 class="card-title">{{ result.name }}</h5>
+                    <p class="card-text">The {{ ordinals[loop.index0] }} book in the epic The Lord of the Rings series.</p>
+                    {% set button_color = ['btn-success', 'btn-danger', 'btn-primary', 'btn-warning', 'btn-info'] %}
+                    <a href="{{ url_for('chapter', id=result._id) }}" class="btn {{ button_color[loop.index0 % button_color|length] }}">Learn More</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
+
+
+
+
+
+
+
+

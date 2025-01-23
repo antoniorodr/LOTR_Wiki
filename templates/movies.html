@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+{% set ordinals = ['first', 'second', 'third', 'fourth', 'fifth', 'sixth', 'seventh', 'eighth', 'ninth', 'tenth'] %}
+<div class="container mt-5">
+    <div class="text-center">
+        <a href="{{ url_for('home') }}" style="text-decoration: none; color: inherit;">
+            <h1 class="display-4 text-success">Welcome to the LOTR Wiki</h1>
+            <p style="color: #ffffff;">Discover the rich world of Middle-earth, its characters, and its stories.</p>
+        </a>
+    </div>
+
+    <div class="row mt-4">
+        <h2 class="text-center">Movies</h2>
+        {% for result in results %}
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm">
+                <img src="https://www.slashfilm.com/img/gallery/cool-stuff-new-lord-of-the-rings-poster-brings-the-weary-journey-of-fellowship-of-the-ring-to-life/l-intro-1652367808.jpg" class="card-img-top" alt="The Fellowship of the Ring">
+                <div class="card-body">
+                    <h5 class="card-title">{{ result.name }}</h5>
+                    <p class="card-text">The {{ ordinals[loop.index0] }} film in the epic The Hobbit/The Lord of the Rings series.</p>
+                    <p><strong>Duration:</strong> {{ result.runtimeInMinutes }} minutes</p>
+                    <p><strong>Awards:</strong> {{ result.academyAwardWins }}</p>
+                    <p><strong>Rotten Tomatoes Score:</strong> {{ result.rottenTomatoesScore | int }}</p>
+                    {% set button_color = ['btn-success', 'btn-danger', 'btn-primary', 'btn-warning', 'btn-info'] %}
+                    <a href="{{ url_for('quotes', id=result._id) }}" class="btn {{ button_color[loop.index0 % button_color|length] }}">Learn More</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

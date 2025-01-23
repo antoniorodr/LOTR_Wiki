@@ -2,8 +2,10 @@
 {% block content %}
 <div class="container mt-5">
     <div class="text-center">
-        <h1 class="display-4 text-success">Welcome to the LOTR Wiki</h1>
-        <p style="color: #ffffff;">Discover the rich world of Middle-earth, its characters, and its stories.</p>
+        <a href="{{ url_for('home') }}" style="text-decoration: none; color: inherit;">
+            <h1 class="display-4 text-success">Welcome to the LOTR Wiki</h1>
+            <p style="color: #ffffff;">Discover the rich world of Middle-earth, its characters, and its stories.</p>
+        </a>
     </div>
 
     <div class="row mt-4">
@@ -14,7 +16,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Books</h5>
                     <p class="card-text">The Lord of the Rings series is a high-fantasy epic written by J.R.R. Tolkien. Learn more about them here.</p>
-                    <a href="#" class="btn btn-success">Learn More</a>
+                    <a href="{{ url_for('books') }}" class="btn btn-success">Learn More</a>
                 </div>
             </div>
         </div>
@@ -26,7 +28,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Movies</h5>
                     <p class="card-text">The movie trilogy based on J.R.R. Tolkien's "The Lord of the Rings", directed by Peter Jackson. Learn more about them here.</p>
-                    <a href="#" class="btn btn-danger">Learn More</a>
+                    <a href="{{ url_for('movies') }}" class="btn btn-danger">Learn More</a>
                 </div>
             </div>
         </div>
@@ -38,31 +40,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Characters</h5>
                     <p class="card-text">Dive deeper into the fascinating and richly detailed characters created by Tolkien, and explore their stories and journeys here.</p>
-                    <a href="#" class="btn btn-primary">Learn More</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Quote Card -->
-        <div class="col-md-4 mb-4">
-            <div class="card shadow-sm">
-                <img src="https://www.storypick.com/wp-content/uploads/2016/12/lotr-cover.jpg" class="card-img-top" alt="Quote">
-                <div class="card-body">
-                    <h5 class="card-title">Quotes</h5>
-                    <p class="card-text">Check out the legendary quotes here.</p>
-                    <a href="#" class="btn btn-warning">Learn More</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Chapter Card -->
-        <div class="col-md-4 mb-4">
-            <div class="card shadow-sm">
-                <img src="https://platform.polygon.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/23985969/6_eu5kv9gd5wq8eiog5qjevre53wq0xm24.jpeg?w=1200" class="card-img-top" alt="The Breaking of the Fellowship">
-                <div class="card-body">
-                    <h5 class="card-title">Chapters</h5>
-                    <p class="card-text">Explore all the chapters of the books here.</p>
-                    <a href="#" class="btn btn-info">Learn More</a>
+                    <a href="{{ url_for('characters') }}" class="btn btn-primary">Learn More</a>
                 </div>
             </div>
         </div>

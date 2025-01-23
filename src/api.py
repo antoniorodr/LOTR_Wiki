@@ -1,5 +1,8 @@
 import requests
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 def api_call(endpoint):
     URL = f"https://the-one-api.dev/v2/{endpoint}"
@@ -16,4 +19,5 @@ def api_call(endpoint):
 
 
 if __name__ == "__main__":
-    api_call("movie")
+    # print(api_call("movie/5cd95395de30eff6ebccde5c/quote"))
+    print(api_call("character"))
