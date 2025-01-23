@@ -52,7 +52,7 @@
 
 A simple LOTR Wiki built with Flask that retrieves information from [The One API](https://the-one-api.dev).
 
-The [DEMO-website](https://the-one-api.dev).
+The [DEMO-website](https://lotr-tau.vercel.app).
 
 ## :sparkles: Features ##
 
