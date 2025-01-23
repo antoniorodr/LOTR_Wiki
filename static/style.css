@@ -1,0 +1,49 @@
+body {
+    background-color: #1b1b1b;
+    color: #f0e6d2;
+    background-image: url("https://c.wallhere.com/photos/5c/d7/video_games_The_Lord_of_the_Rings_Middle_earth_Shadow_of_Mordor_Shadow_of_Mordor_fantasy_art_Mordor_Middle_earth_Shadow_of_Mordor_Middle_earth-228243.jpg!d");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.card {
+    background-color: #2c2c2c;
+    color: #f0e6d2;
+    border: 1px solid #444;
+}
+.btn {
+    border: none;
+}
+.btn-success {
+    background-color: #4caf50;
+}
+.btn-danger {
+    background-color: #d32f2f;
+}
+.btn-primary {
+    background-color: #1976d2;
+}
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.card {
+    opacity: 0.85; /* Gjør kortene litt gjennomsiktige */
+    transition: opacity 0.3s ease; /* Jevn overgang på hover */
+}
+
+.card:hover {
+    opacity: 1; /* Fullt synlig på hover */
+}
+
+.card-body {
+    background-color: rgba(27, 26, 26, 0.8); /* Gjennomsiktig bakgrunn for kortene */
+}
+
+.text-center {
+    background-color: rgba(27, 26, 26, 0.8); /* Svart bakgrunn med gjennomsiktighet */
+    padding: 5px;
+    border-radius: 5px;
+}
